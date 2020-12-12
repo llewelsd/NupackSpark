@@ -1,0 +1,19 @@
+% NUPACK 3.2.2
+% Program: energy
+% Start time: Tue Jun  9 17:41:40 2020
+% Command: energy -material dna -multi input/walker-struct 
+% NUPACK 3.2.2
+% Program: energy
+% Start time: Tue Jun  9 17:41:40 2020
+% Command: energy -material dna -multi input/walker-struct 
+% Sequence:  GGCTGGTTTCTGCTCTCTAGTTCGCGAGGTGCAATCTCCTATC+GTCTGGGATGCTGGATACTGAACCTAGAGAGCAGAAACCAGCC
+% Structure: ((((((((((((((((((((.......................+.......................))))))))))))))))))))
+% v(pi): 1
+% Parameters: DNA, 1998
+% Dangles setting: 1
+% Temperature (C): 37.0
+% Sodium concentration: 1.0000 M
+% Magnesium concentration: 0.0000 M
+%
+% Energy (kcal/mol):
+-28.04135141907946

@@ -1,0 +1,1 @@
+/usr/bin/cc  -std=c99 -Wall -g -O3 -DNDEBUG  -rdynamic CMakeFiles/complexdefect.dir/defect.c.o  -o ../../../bin/complexdefect  -L/home/shoshanna/nupack3.2.2/build/lib -Wl,-rpath,/home/shoshanna/nupack3.2.2/build/lib: ../../../lib/libnupackpfunc.a ../../../lib/libnupackutils.a -lm 
