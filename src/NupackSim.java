@@ -50,10 +50,16 @@ public class NupackSim {
     		formatter.printHelp("Nupack DNA Generator",options);
     		System.exit(1);
     	}
-    	
-    	int size = Integer.parseInt(args[args.length-2]);
-    	long count = Long.parseLong(args[args.length-1]);
-    	String outputfile = "NP_sim_output"+size+"_"+count;
+    	String outputfile = "NP_sim_output";
+    	String inputfile = "";
+    	if(cmd.hasOption("i")) {
+    		outputfile = outputfile+cmd.getOptionValue("i");
+    		inputfile = cmd.getOptionValue("i");
+    	}
+    	else {
+    		System.out.println("Provide input file");
+    		System.exit(1);
+    	}
     	if(cmd.hasOption("o")) {
     		outputfile = cmd.getOptionValue("o");
     	}
@@ -67,26 +73,16 @@ public class NupackSim {
 			System.out.println("Starting");
 			JavaPairRDD<Long,String> dnas = null;
 			// Create list
-			List<Long> ind = helper.newList(count);
-			JavaRDD<Long> index = sc.parallelize(ind);
-			// if input list provided, use, otherwise, generate one
-			if(cmd.hasOption("i")) {
-				// read file
-				Path path = Paths.get(cmd.getOptionValue("i"));
-				if(Files.exists(path)) {
-					System.out.println("Using File: " + cmd.getOptionValue("i"));
-					List<String> DNA = Files.readAllLines(path,StandardCharsets.UTF_8);
-					dnas = sc.parallelize(DNA).mapToPair(t-> new Tuple2<Long,String>((long) t.length(),t));
-				}
-				else {
-					System.out.println("Invalid Input File Path");
-					System.exit(1);
-				}
+			
+			Path path = Paths.get(inputfile);
+			if(Files.exists(path)) {
+				System.out.println("Using File: " + cmd.getOptionValue("i"));
+				List<String> DNA = Files.readAllLines(path,StandardCharsets.UTF_8);
+				dnas = sc.parallelize(DNA).mapToPair(t-> new Tuple2<Long,String>((long) t.length(),t));
 			}
 			else {
-				// Create random DNA
-				System.out.println("Using RNG");
-				dnas = index.mapToPair(l -> new Tuple2<>(l,helper.randomDNA(size)));
+				System.out.println("Invalid Input File Path");
+				System.exit(1);
 			}
 			
 
