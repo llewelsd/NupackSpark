@@ -27,8 +27,8 @@ public class NupackSim {
 	
 	@SuppressWarnings("resource")
 	public static void main(String[] args) throws ParseException {
-		Logger log = LogManager.getRootLogger(); 
-    	log.setLevel(Level.OFF);
+		//Logger log = LogManager.getRootLogger(); 
+    	//log.setLevel(Level.OFF);
     	
     	
     	Options options = new Options();
