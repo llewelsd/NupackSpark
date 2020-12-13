@@ -1,2 +1,0 @@
-/usr/bin/ar qc ../../../lib/libnupackconc.a  CMakeFiles/nupackconc.dir/CalcConc.c.o
-/usr/bin/ranlib ../../../lib/libnupackconc.a
