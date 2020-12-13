@@ -23,7 +23,7 @@ public class NupackWrapper {
 	final static String DANGLES = "some";
 	final static String T = "37";
 	
-	final static String RAMDISK = "/mnt/ramdisk";
+	final static String WORKDIR = System.getProperty("user.dir")+"/data";
 	
 	//final static String TMPFILE_INPUT = "tmpinput";c
 	final static String TMPFILE = "tmpfile";
@@ -40,7 +40,7 @@ public class NupackWrapper {
 		
 		String tmpfile_name = TMPFILE+"_"+i.toString();
 		
-		File ramdisk = new File(RAMDISK);
+		File ramdisk = new File(WORKDIR);
 		//String ofile = TMPFILE_OUTPUT+"_"+i+;
 		
 		// make file to write
@@ -105,7 +105,7 @@ public class NupackWrapper {
 		double[][] pairprobs = new double[l][l];
 		
 		String tmpfile_name = TMPFILE+"_PAIRS";
-		File ramdisk = new File(RAMDISK);
+		File ramdisk = new File(WORKDIR);
 		
 		File inputFile = File.createTempFile(tmpfile_name, IFILE_EXT, ramdisk);
 		
